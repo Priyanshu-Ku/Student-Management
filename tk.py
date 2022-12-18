@@ -45,17 +45,23 @@ class Student:
 
         #manage frame  
         manage_frame=Frame(background_label,bd=2,relief=RIDGE,bg="white")
-        manage_frame.place(x=15,y=55,width=1500,height=560)
+        manage_frame.place(x=15,y=55,width=1900,height=560)
 
+        #left frame 
+        dataleftframe=LabelFrame(manage_frame,bd=4,relief=RIDGE,padx=2,text="Student Information",font=("times new roman",12,"bold"),fg="red",bg="white")
+        dataleftframe.place(x=10,y=10,width=660,height=540)
 
+        #leftimg
+        img_5=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
+        img_5=img_5.resize((650,120),Image.Resampling.LANCZOS)
+        self.photoimg_5=ImageTk.PhotoImage(img_5)
 
+        leftimg=Label(dataleftframe,image=self.photoimg_5,bd=2,relief=RIDGE)
+        leftimg.place(x=0,y=0,width=650,height=120)
 
-
-
-
-
-
-
+        #right frame 
+        datarightframe=LabelFrame(manage_frame,bd=4,relief=RIDGE,padx=2,text="Student Information",font=("times new roman",12,"bold"),fg="red",bg="white")
+        datarightframe.place(x=680,y=10,width=820,height=540)
 
 
 
