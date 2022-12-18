@@ -1,81 +1,68 @@
-import tkinter as tk 
-import tkinter.font as font 
-from PIL import Image,ImageTk
-from tkinter import RIDGE,CENTER,messagebox,LEFT,ttk,END
-import mysql.connector as mys
-mycon=mys.connect(host="localhost",user="root",password="Moonknight",database="School")
-ans="y"
-found=False
-mycursor=mycon.cursor()
-while ans=="y":
-    print("1.show all records\n2.create a table\n3.insert records\n4.delete records\n5.updation records\n6.Drop table\n7.Truncate table")
-    ch=int(input("enter choice:"))
-    if ch==1: # block executed and working
-        try:
-             mycursor.execute("select * from emp")
-             data=mycursor.fetchall()
-             nrec=mycursor.rowcount
-             print("Total number of records:",nrec)
-             for row in data:
-                 print(row)
-             found=True
-        except:
-             print("Table doesn't exist")
-             print("Total number of records:",0)                     
-    if ch==2:     #block executed and working
-        try:                     
-             qquery="create table emp(Empid int Primary key,Name varchar(25),Department varchar(25),Salary int)"
-             mycursor.execute(qquery)
-             mycon.commit()
-             print("table created")
-             found=True
-        except:
-            print("Table already exist")
-            nrec=mycursor.rowcount
-            print("Total number of records:",nrec) 
-    if ch==3:      #block "NOT" executing
-        print('Insertion of data')      
-        amag='yes'
-        while amag=='yes':
-          id=int(input("enter empid:"))
-          name=input("enter name:")
-          Dept=input("enter department:")
-          Sal=int(input("enter salary:"))
-          queery='''insert into emp (Empid,Name,Department,Salary)values('int(id)','name','Dept','int(Sal)')''' #field not defined error in name and probability
-          mycursor.execute(queery) #query execution error
-          mycon.commit()
-          print("records saved")
-          amag=input("Add more Records:")      
-    if ch==4:      #block "NOT" executing
-        print("Deletion of Records")
-        e=int(input("Enter Empid:"))
-        qqqquery="select * from emp where Empid=%s"%(e,)
-        mycursor.execute(qqqquery) #query execution error
-        data=mycursor.fetchone()
-        if data!=None:
-            querry="delete from emp where Empid={}".format(e)
-            mycursor.execute(querry) #query execution error
-            mycon.commit()
-            print("records deleted successfully")
-        else:
-            print("No such employee")     
-    if ch==5:      #block "NOT" executing
-        print("Updation of salary")
-        e=int(input("enter Empid:"))
-        queryy="select * from emp where Empid={}".format(e)
-        mycursor.execute(queryy)
-        data=mycursor.fetchone()
-        if data!=None:
-            quueryy="update emp set Salary=Salary+1000 where e={}".format(e)
-            mycursor.execute(quueryy)  #query execution error
-            mycon.commit()
-        else:
-            print("No such employee") 
-    if ch==6:
-        mycursor.execute("drop table emp")
-        print("Table successfully deleted from databse")
-    if ch==7:
-        mycursor.execute("truncate table emp")  
-        print("Table successfully emptied\ncontents of the table cannot be retrieved")  
-    ans=input("do you want to continue:")
-    
+from tkinter import*
+from tkinter import ttk
+from PIL import Image,ImageTk  #pip install pillow in cmd 
+
+class Student:
+    def __init__(self,root):
+        self.root=root
+        self.root.geometry("1920x1080+0+0")
+        self.root.title("STUDENT MANAGEMENT SYSTEM")
+
+        #1st
+        img_1=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
+        img_1=img_1.resize((500,160),Image.Resampling.LANCZOS)
+        self.photoimg_1=ImageTk.PhotoImage(img_1)
+
+        self.btn_1=Button(self.root,image=self.photoimg_1,cursor="hand2")
+        self.btn_1.place(x=0,y=0,width=500,height=160)
+
+         #2nd
+        img_2=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
+        img_2=img_2.resize((500,160),Image.Resampling.LANCZOS)
+        self.photoimg_2=ImageTk.PhotoImage(img_2)
+
+        self.btn_2=Button(self.root,image=self.photoimg_2,cursor="hand2")
+        self.btn_2.place(x=540,y=0,width=500,height=160)
+
+         #3rd
+        img_3=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
+        img_3=img_3.resize((500,160),Image.Resampling.LANCZOS)
+        self.photoimg_3=ImageTk.PhotoImage(img_3)
+
+        self.btn_3=Button(self.root,image=self.photoimg_3,cursor="hand2")
+        self.btn_3.place(x=1080,y=0,width=500,height=160)
+
+        #background image
+        img_4=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
+        img_4=img_4.resize((1920,710),Image.Resampling.LANCZOS)
+        self.photoimg_4=ImageTk.PhotoImage(img_4)
+
+        background_label=Label(self.root,image=self.photoimg_4,bd=2,relief=RIDGE)
+        background_label.place(x=0,y=160,width=1920,height=710)
+
+        label_title=Label(background_label,text="STUDENT MANAGEMENT SYSTEM",font=("times new roman",37,"bold"),fg="blue",bg="white")
+        label_title.place(x=-100,y=0,width=1920,height=50)
+
+        #manage frame  
+        manage_frame=Frame(background_label,bd=2,relief=RIDGE,bg="white")
+        manage_frame.place(x=15,y=55,width=1500,height=560)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__=="__main__":
+    root=Tk()
+    obj=Student(root)
+    root.mainloop()
+
+
