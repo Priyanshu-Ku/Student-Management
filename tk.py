@@ -7,7 +7,7 @@ import mysql.connector as mys
 class Student:
     def __init__(self,root):
         self.root=root
-        self.root.geometry("1920x1080+0+0")
+        self.root.geometry("1530x790+0+0")
         self.root.title("STUDENT MANAGEMENT SYSTEM")
 
 
@@ -15,42 +15,42 @@ class Student:
 
         #1st
         img_1=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
-        img_1=img_1.resize((500,160),Image.Resampling.LANCZOS)
+        img_1=img_1.resize((540,160),Image.Resampling.LANCZOS)
         self.photoimg_1=ImageTk.PhotoImage(img_1)
 
         self.btn_1=Button(self.root,image=self.photoimg_1,cursor="hand2")
-        self.btn_1.place(x=0,y=0,width=500,height=160)
+        self.btn_1.place(x=0,y=0,width=540,height=160)
 
          #2nd
         img_2=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
-        img_2=img_2.resize((500,160),Image.Resampling.LANCZOS)
+        img_2=img_2.resize((540,160),Image.Resampling.LANCZOS)
         self.photoimg_2=ImageTk.PhotoImage(img_2)
 
         self.btn_2=Button(self.root,image=self.photoimg_2,cursor="hand2")
-        self.btn_2.place(x=540,y=0,width=500,height=160)
+        self.btn_2.place(x=540,y=0,width=540,height=160)
 
          #3rd
         img_3=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
-        img_3=img_3.resize((500,160),Image.Resampling.LANCZOS)
+        img_3=img_3.resize((540,160),Image.Resampling.LANCZOS)
         self.photoimg_3=ImageTk.PhotoImage(img_3)
 
         self.btn_3=Button(self.root,image=self.photoimg_3,cursor="hand2")
-        self.btn_3.place(x=1080,y=0,width=500,height=160)
+        self.btn_3.place(x=1080,y=0,width=540,height=160)
 
         #background image
         img_4=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
-        img_4=img_4.resize((1920,710),Image.Resampling.LANCZOS)
+        img_4=img_4.resize((1530,710),Image.Resampling.LANCZOS)
         self.photoimg_4=ImageTk.PhotoImage(img_4)
 
         background_label=Label(self.root,image=self.photoimg_4,bd=2,relief=RIDGE)
-        background_label.place(x=0,y=160,width=1920,height=710)
+        background_label.place(x=0,y=160,width=1530,height=710)
 
         label_title=Label(background_label,text="STUDENT MANAGEMENT SYSTEM",font=("times new roman",37,"bold"),fg="blue",bg="white")
-        label_title.place(x=-100,y=0,width=1920,height=50)
+        label_title.place(x=0,y=0,width=1530,height=50)
 
         #manage frame  
         manage_frame=Frame(background_label,bd=2,relief=RIDGE,bg="white")
-        manage_frame.place(x=15,y=55,width=1900,height=560)
+        manage_frame.place(x=15,y=55,width=1500,height=560)
 
         #left frame 
         dataleftframe=LabelFrame(manage_frame,bd=4,relief=RIDGE,padx=2,text="Student Information",font=("times new roman",12,"bold"),fg="red",bg="white")
@@ -107,25 +107,25 @@ class Student:
 
         #Student class infromation
         stuclass=LabelFrame(dataleftframe,bd=4,relief=RIDGE,padx=2,text="Student Class Information",font=("times new roman",12,"bold"),fg="red",bg="white")
-        stuclass.place(x=0,y=235,width=650,height=280)
+        stuclass.place(x=0,y=235,width=650,height=250)
 
         #labels entry
         #ID
-        lbl_id=Label(stuclass,font=("arial",12,"bold"),text="StudentID:",bg="white")
+        lbl_id=Label(stuclass,font=("arial",11,"bold"),text="StudentID:",bg="white")
         lbl_id.grid(row=0,column=0,sticky=W,padx=2,pady=7)
 
-        id_entry=ttk.Entry(stuclass,font=("arial",12,"bold"),width=22)
+        id_entry=ttk.Entry(stuclass,font=("arial",11,"bold"),width=22)
         id_entry.grid(row=0,column=1,sticky=W,padx=2,pady=7)
 
         #Name
-        lbl_name=Label(stuclass,font=("arial",12,"bold"),text="Student Name:",bg="white")
+        lbl_name=Label(stuclass,font=("arial",11,"bold"),text="Student Name:",bg="white")
         lbl_name.grid(row=0,column=2,sticky=W,padx=2,pady=7)
 
-        txt_name=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        txt_name=ttk.Entry(stuclass,width=22,font=("arial",11,"bold"))
         txt_name.grid(row=0,column=3,padx=2,pady=7)
 
         #Division
-        lbl_div=Label(stuclass,font=("arial",12,"bold"),text="Class Division:",bg="white")
+        lbl_div=Label(stuclass,font=("arial",11,"bold"),text="Class Division:",bg="white")
         lbl_div.grid(row=1,column=0,sticky=W,padx=2,pady=7)
 
         com_txt_div=ttk.Combobox(stuclass,font=("arial",12,"bold"),width=18,state="readonly")
@@ -134,14 +134,14 @@ class Student:
         com_txt_div.grid(row=1,column=1,sticky=W,padx=2,pady=7)
 
         #Roll no
-        lbl_rollno=Label(stuclass,font=("arial",12,"bold"),text="Roll No:",bg="white")
+        lbl_rollno=Label(stuclass,font=("arial",11,"bold"),text="Roll No:",bg="white")
         lbl_rollno.grid(row=1,column=2,sticky=W,padx=2,pady=7)
 
-        txt_rollno=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        txt_rollno=ttk.Entry(stuclass,width=22,font=("arial",11,"bold"))
         txt_rollno.grid(row=1,column=3,padx=2,pady=7)
 
         #Gender
-        lbl_gender=Label(stuclass,font=("arial",12,"bold"),text="Gender:",bg="white")
+        lbl_gender=Label(stuclass,font=("arial",11,"bold"),text="Gender:",bg="white")
         lbl_gender.grid(row=2,column=0,sticky=W,padx=2,pady=7)
 
         com_txt_gender=ttk.Combobox(stuclass,font=("arial",12,"bold"),width=18,state="readonly")
@@ -150,26 +150,25 @@ class Student:
         com_txt_gender.grid(row=2,column=1,sticky=W,padx=2,pady=7)
 
         #DOB
-        lbl_dob=Label(stuclass,font=("arial",12,"bold"),text="DOB:",bg="white")
+        lbl_dob=Label(stuclass,font=("arial",11,"bold"),text="DOB:",bg="white")
         lbl_dob.grid(row=2,column=2,sticky=W,padx=2,pady=7)
 
-        lbl_dob=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        lbl_dob=ttk.Entry(stuclass,width=22,font=("arial",11,"bold"))
         lbl_dob.grid(row=2,column=3,padx=2,pady=7)
 
         #Phone no
-        lbl_phone=Label(stuclass,font=("arial",12,"bold"),text="Phone No:",bg="white")
+        lbl_phone=Label(stuclass,font=("arial",11,"bold"),text="Phone No:",bg="white")
         lbl_phone.grid(row=3,column=2,sticky=W,padx=2,pady=7)
 
-        txt_phone=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        txt_phone=ttk.Entry(stuclass,width=22,font=("arial",11,"bold"))
         txt_phone.grid(row=3,column=3,padx=2,pady=7)
 
         #Address
-        lbl_address=Label(stuclass,font=("arial",12,"bold"),text="Address:",bg="white")
+        lbl_address=Label(stuclass,font=("arial",11,"bold"),text="Address:",bg="white")
         lbl_address.grid(row=3,column=0,sticky=W,padx=2,pady=7)
 
-        txt_address=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        txt_address=ttk.Entry(stuclass,width=22,font=("arial",11,"bold"))
         txt_address.grid(row=3,column=1,padx=2,pady=7)
-
 
 
 
@@ -186,7 +185,7 @@ class Student:
 
         #right frame 
         datarightframe=LabelFrame(manage_frame,bd=4,relief=RIDGE,padx=2,text="Student Information",font=("times new roman",12,"bold"),fg="red",bg="white")
-        datarightframe.place(x=680,y=10,width=820,height=540)
+        datarightframe.place(x=680,y=10,width=800,height=540)
 
 
 
