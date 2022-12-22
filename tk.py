@@ -107,7 +107,7 @@ class Student:
 
         #Student class infromation
         stuclass=LabelFrame(dataleftframe,bd=4,relief=RIDGE,padx=2,text="Student Class Information",font=("times new roman",12,"bold"),fg="red",bg="white")
-        stuclass.place(x=0,y=235,width=650,height=250)
+        stuclass.place(x=0,y=235,width=650,height=235)
 
         #labels entry
         #ID
@@ -170,26 +170,61 @@ class Student:
         txt_address=ttk.Entry(stuclass,width=22,font=("arial",11,"bold"))
         txt_address.grid(row=3,column=1,padx=2,pady=7)
 
+        #Button Frame
+        btn_frame=Frame(dataleftframe,bd=2,relief=RIDGE,bg="white")
+        btn_frame.place(x=0,y=470,width=650,height=38)
 
+        btn_save=Button(btn_frame,text="Save",font=("arial",11,"bold"),width=17,bg="grey",fg="blue")
+        btn_save.grid(row=0,column=0,padx=1)
 
+        btn_update=Button(btn_frame,text="Update",font=("arial",11,"bold"),width=17,bg="grey",fg="blue")
+        btn_update.grid(row=0,column=1,padx=1)
 
+        btn_delete=Button(btn_frame,text="Delete",font=("arial",11,"bold"),width=17,bg="grey",fg="blue")
+        btn_delete.grid(row=0,column=2,padx=1)
 
-
-
-
-
-
-
-        
-
+        btn_reset=Button(btn_frame,text="Reset",font=("arial",11,"bold"),width=17,bg="grey",fg="blue")
+        btn_reset.grid(row=0,column=3,padx=1)
 
         #right frame 
         datarightframe=LabelFrame(manage_frame,bd=4,relief=RIDGE,padx=2,text="Student Information",font=("times new roman",12,"bold"),fg="red",bg="white")
         datarightframe.place(x=680,y=10,width=800,height=540)
 
+        #rightimg
+        img_6=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
+        img_6=img_6.resize((790,200),Image.Resampling.LANCZOS)
+        self.photoimg_6=ImageTk.PhotoImage(img_6)
+
+        rightimg=Label(datarightframe,image=self.photoimg_6,bd=2,relief=RIDGE)
+        rightimg.place(x=0,y=0,width=790,height=200)
+
+        #search frame 
+        search_frame=LabelFrame(datarightframe,bd=4,relief=RIDGE,padx=2,text="Search Student Information",font=("times new roman",12,"bold"),fg="red",bg="white")
+        search_frame.place(x=0,y=200,width=790,height=60)
+
+        search_by=Label(search_frame,font=("arial",11,"bold"),text="Search By:",fg="Blue",bg="yellow")
+        search_by.grid(row=0,column=0,sticky=W,padx=5)
+
+        com_txt_search=ttk.Combobox(search_frame,font=("arial",12,"bold"),width=18,state="readonly")
+        com_txt_search["value"]=("Select Option","Roll No","Phone No","Student ID")
+        com_txt_search.current(0)
+        com_txt_search.grid(row=0,column=1,sticky=W,padx=5)
+
+        txt_search=ttk.Entry(search_frame,width=22,font=("arial",11,"bold"))
+        txt_search.grid(row=0,column=2,padx=5)
+
+        btn_search=Button(search_frame,text="Search",font=("arial",11,"bold"),width=14,bg="grey",fg="blue")
+        btn_search.grid(row=0,column=3,padx=5)
+
+        btn_show_all=Button(search_frame,text="Show All",font=("arial",11,"bold"),width=15,bg="grey",fg="blue")
+        btn_show_all.grid(row=0,column=4,padx=5)
 
 
 
+
+
+
+ 
 if __name__=="__main__":
     root=Tk()
     obj=Student(root)
