@@ -69,6 +69,7 @@ class Student:
         stulblframe.place(x=0,y=120,width=650,height=115)
 
         #Labels and Combo
+        #Department
         lbl_dep=Label(stulblframe,text="Department:",font=("arial",12,"bold"),bg="white")
         lbl_dep.grid(row=0,column=0,padx=2,sticky=W)    
 
@@ -77,34 +78,110 @@ class Student:
         combo_dep.current(0)
         combo_dep.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
-        #course
+        #Course
         course_std=Label(stulblframe,font=("arial",12,"bold"),text="Courses:",bg="white")
         course_std.grid(row=0,column=2,sticky=W,padx=2,pady=10)
         
-        com_txtcourse_std=ttk.Combobox(stulblframe,state="readonly",font=("arial",12,"bold"),width=17)
+        com_txtcourse_std=ttk.Combobox(stulblframe,font=("arial",12,"bold"),width=17,state="readonly")
         com_txtcourse_std["value"]=("Select Course","FE","SE","TE","BE")
         com_txtcourse_std.current(0)
         com_txtcourse_std.grid(row=0,column=3,sticky=W,padx=2,pady=10)
         
-        #year
+        #Year
         current_year=Label(stulblframe,font=("arial",12,"bold"),text="Year:",bg="white")
         current_year.grid(row=1,column=0,sticky=W,padx=2)
 
-        com_text_current_year=ttk.Combobox(stulblframe,state="readonly",font=("arial",12,"bold"),width=17)
+        com_text_current_year=ttk.Combobox(stulblframe,font=("arial",12,"bold"),width=17,state="readonly")
         com_text_current_year["value"]=("Select Year","2019-2020","2020-2021","2021-2022","2022-2023")
         com_text_current_year.current(0)
         com_text_current_year.grid(row=1,column=1,sticky=W,padx=2)
 
-        #semester
+        #Semester
         label_semester=Label(stulblframe,font=("arial",12,"bold"),text="Semester:",bg="white")
         label_semester.grid(row=1,column=2,sticky=W,padx=2,pady=10)
 
-        com_semester=ttk.Combobox(stulblframe,state="readonly",font=("arial",12,"bold"),width=17)
+        com_semester=ttk.Combobox(stulblframe,font=("arial",12,"bold"),width=17,state="readonly")
         com_semester["value"]=("Select Semester","Semester-1","Semester-2")
         com_semester.current(0)
         com_semester.grid(row=1,column=3,sticky=W,pady=10)
 
+        #Student class infromation
+        stuclass=LabelFrame(dataleftframe,bd=4,relief=RIDGE,padx=2,text="Student Class Information",font=("times new roman",12,"bold"),fg="red",bg="white")
+        stuclass.place(x=0,y=235,width=650,height=280)
 
+        #labels entry
+        #ID
+        lbl_id=Label(stuclass,font=("arial",12,"bold"),text="StudentID:",bg="white")
+        lbl_id.grid(row=0,column=0,sticky=W,padx=2,pady=7)
+
+        id_entry=ttk.Entry(stuclass,font=("arial",12,"bold"),width=22)
+        id_entry.grid(row=0,column=1,sticky=W,padx=2,pady=7)
+
+        #Name
+        lbl_name=Label(stuclass,font=("arial",12,"bold"),text="Student Name:",bg="white")
+        lbl_name.grid(row=0,column=2,sticky=W,padx=2,pady=7)
+
+        txt_name=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        txt_name.grid(row=0,column=3,padx=2,pady=7)
+
+        #Division
+        lbl_div=Label(stuclass,font=("arial",12,"bold"),text="Class Division:",bg="white")
+        lbl_div.grid(row=1,column=0,sticky=W,padx=2,pady=7)
+
+        com_txt_div=ttk.Combobox(stuclass,font=("arial",12,"bold"),width=18,state="readonly")
+        com_txt_div["value"]=("Select Division","A","B","C")
+        com_txt_div.current(0)
+        com_txt_div.grid(row=1,column=1,sticky=W,padx=2,pady=7)
+
+        #Roll no
+        lbl_rollno=Label(stuclass,font=("arial",12,"bold"),text="Roll No:",bg="white")
+        lbl_rollno.grid(row=1,column=2,sticky=W,padx=2,pady=7)
+
+        txt_rollno=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        txt_rollno.grid(row=1,column=3,padx=2,pady=7)
+
+        #Gender
+        lbl_gender=Label(stuclass,font=("arial",12,"bold"),text="Gender:",bg="white")
+        lbl_gender.grid(row=2,column=0,sticky=W,padx=2,pady=7)
+
+        com_txt_gender=ttk.Combobox(stuclass,font=("arial",12,"bold"),width=18,state="readonly")
+        com_txt_gender["value"]=("Select Gender","Male","Female","Other")
+        com_txt_gender.current(0)
+        com_txt_gender.grid(row=2,column=1,sticky=W,padx=2,pady=7)
+
+        #DOB
+        lbl_dob=Label(stuclass,font=("arial",12,"bold"),text="DOB:",bg="white")
+        lbl_dob.grid(row=2,column=2,sticky=W,padx=2,pady=7)
+
+        lbl_dob=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        lbl_dob.grid(row=2,column=3,padx=2,pady=7)
+
+        #Phone no
+        lbl_phone=Label(stuclass,font=("arial",12,"bold"),text="Phone No:",bg="white")
+        lbl_phone.grid(row=3,column=2,sticky=W,padx=2,pady=7)
+
+        txt_phone=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        txt_phone.grid(row=3,column=3,padx=2,pady=7)
+
+        #Address
+        lbl_address=Label(stuclass,font=("arial",12,"bold"),text="Address:",bg="white")
+        lbl_address.grid(row=3,column=0,sticky=W,padx=2,pady=7)
+
+        txt_address=ttk.Entry(stuclass,width=22,font=("arial",12,"bold"))
+        txt_address.grid(row=3,column=1,padx=2,pady=7)
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
         #right frame 
