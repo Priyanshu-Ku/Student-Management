@@ -1,12 +1,17 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image,ImageTk  #pip install pillow in cmd 
+import mysql.connector as mys
+
 
 class Student:
     def __init__(self,root):
         self.root=root
         self.root.geometry("1920x1080+0+0")
         self.root.title("STUDENT MANAGEMENT SYSTEM")
+
+
+        
 
         #1st
         img_1=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
