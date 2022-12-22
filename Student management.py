@@ -83,3 +83,44 @@ while ans=="y":
         print("coditional selection")      
     ans=input("do you want to continue:")
     
+def create_database_and_table():
+    query="CREATE DATABASE IF NOT EXISTS Student Management System"
+    mycursor=mycon.cursor()
+    mycursor.execute(query)
+
+    query="USE Student Management System"
+    mycursor.execute(query)
+
+    query="""CREATE TABLE IF NOT EXISTS Student_details( 
+        Sid INT NOT NULL PRIMARY KEY,
+        Name VARCHAR(50) NOT NULL,
+        Father's_name VARCHAR(50) NOT NULL,
+        Mother's_name VARCHAR(50) NOT NULL,
+        Father's_occupation VARCHAR(30) NOT NULL,
+        Mother's_occupation VARCHAR(30) NOT NULL,
+        D.O.B DATE NOT NULL,
+        Age INT NOT NULL,
+        Gender VARCHAR(20) NOT NULL,
+        Contact INT NOT NULL,
+        Address VARCHAR(99) NOT NULL,
+        Blood_group VARCHAR(20) NOT NULL)"""
+    mycursor.execute(query)
+
+    query="""CREATE TABLE IF NOT EXISTS Attendance(
+        Total_days INT NOT NULL,
+        No_of_presentdays INT NOT NULL,
+        No_of_absentdays INT NOT NULL,
+        Attendance% INT NOT NULL)"""
+    mycursor.execute(query)
+
+    query="""CREATE TABLE IF NOT EXISTS Academic performance(
+        Examination VARCHAR(40) NOT NULL,
+        English INT NOT NULL,
+        Maths INT NOT NULL,
+        Chemistry INT NOT NULL,
+        Physics INT NOT NULL,
+        Computer_Science INT NOT NULL
+        Total_marks INT NOT NULL,
+        Percentage_scored INT NOT NULL)"""
+    mycursor.execute(query)
+    

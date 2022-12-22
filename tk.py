@@ -64,6 +64,49 @@ class Student:
         leftimg=Label(dataleftframe,image=self.photoimg_5,bd=2,relief=RIDGE)
         leftimg.place(x=0,y=0,width=650,height=120)
 
+        #Current course labelframe infromation
+        stulblframe=LabelFrame(dataleftframe,bd=4,relief=RIDGE,padx=2,text="Current Course Information",font=("times new roman",12,"bold"),fg="red",bg="white")
+        stulblframe.place(x=0,y=120,width=650,height=115)
+
+        #Labels and Combo
+        lbl_dep=Label(stulblframe,text="Department:",font=("arial",12,"bold"),bg="white")
+        lbl_dep.grid(row=0,column=0,padx=2,sticky=W)    
+
+        combo_dep=ttk.Combobox(stulblframe,font=("arial",12,"bold"),width=17,state="readonly")
+        combo_dep["value"]=("Select Department","Computer","IT","Civil")
+        combo_dep.current(0)
+        combo_dep.grid(row=0,column=1,padx=2,pady=10,sticky=W)
+
+        #course
+        course_std=Label(stulblframe,font=("arial",12,"bold"),text="Courses:",bg="white")
+        course_std.grid(row=0,column=2,sticky=W,padx=2,pady=10)
+        
+        com_txtcourse_std=ttk.Combobox(stulblframe,state="readonly",font=("arial",12,"bold"),width=17)
+        com_txtcourse_std["value"]=("Select Course","FE","SE","TE","BE")
+        com_txtcourse_std.current(0)
+        com_txtcourse_std.grid(row=0,column=3,sticky=W,padx=2,pady=10)
+        
+        #year
+        current_year=Label(stulblframe,font=("arial",12,"bold"),text="Year:",bg="white")
+        current_year.grid(row=1,column=0,sticky=W,padx=2)
+
+        com_text_current_year=ttk.Combobox(stulblframe,state="readonly",font=("arial",12,"bold"),width=17)
+        com_text_current_year["value"]=("Select Year","2019-2020","2020-2021","2021-2022","2022-2023")
+        com_text_current_year.current(0)
+        com_text_current_year.grid(row=1,column=1,sticky=W,padx=2)
+
+        #semester
+        label_semester=Label(stulblframe,font=("arial",12,"bold"),text="Semester:",bg="white")
+        label_semester.grid(row=1,column=2,sticky=W,padx=2,pady=10)
+
+        com_semester=ttk.Combobox(stulblframe,state="readonly",font=("arial",12,"bold"),width=17)
+        com_semester["value"]=("Select Semester","Semester-1","Semester-2")
+        com_semester.current(0)
+        com_semester.grid(row=1,column=3,sticky=W,pady=10)
+
+
+
+
         #right frame 
         datarightframe=LabelFrame(manage_frame,bd=4,relief=RIDGE,padx=2,text="Student Information",font=("times new roman",12,"bold"),fg="red",bg="white")
         datarightframe.place(x=680,y=10,width=820,height=540)
@@ -74,6 +117,6 @@ class Student:
 if __name__=="__main__":
     root=Tk()
     obj=Student(root)
-    root.mainloop()
+    root.mainloop()  
 
 
