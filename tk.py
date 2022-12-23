@@ -9,9 +9,8 @@ class Student:
         self.root=root
         self.root.geometry("1530x790+0+0")
         self.root.title("STUDENT MANAGEMENT SYSTEM")
+        self.root.iconbitmap(r'kvs.ico')
 
-
-        
 
         #1st
         img_1=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\CS\\college_images\\student.jpg")
