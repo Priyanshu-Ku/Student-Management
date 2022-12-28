@@ -222,7 +222,7 @@ class Student:
         #search  
         self.var_com_search=StringVar()
         com_txt_search=ttk.Combobox(search_frame,textvariable=self.var_com_search,font=("arial",12,"bold"),width=18,state="readonly")
-        com_txt_search["value"]=("Select Option","Roll No","Phone No","Student ID")
+        com_txt_search["value"]=("Select Option","Roll_no","Phone_no","Student_id")
         com_txt_search.current(0)
         com_txt_search.grid(row=0,column=1,sticky=W,padx=5)
 
