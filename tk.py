@@ -83,37 +83,37 @@ class Student:
 
         #Labels and Combo
         #Class
-        lbl_class=Label(stulblframe,text="Class:",font=("arial",12,"bold"),bg="white")
+        lbl_class=Label(stulblframe,text="Class:",font=("helvetica",12,"bold"),bg="white")
         lbl_class.grid(row=0,column=0,padx=2,sticky=W)    
 
-        combo_class=ttk.Combobox(stulblframe,textvariable=self.var_class,font=("arial",12,"bold"),width=17,state="readonly")
+        combo_class=ttk.Combobox(stulblframe,textvariable=self.var_class,font=("helvetica",12,"bold"),width=17,state="readonly")
         combo_class["value"]=("Select Class","XI","XII")
         combo_class.current(0)
         combo_class.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
         #Stream
-        stream_std=Label(stulblframe,font=("arial",12,"bold"),text="Stream:",bg="white")
+        stream_std=Label(stulblframe,font=("helvetica",12,"bold"),text="Stream:",bg="white")
         stream_std.grid(row=0,column=2,sticky=W,padx=2,pady=10)
         
-        com_txt_stream_std=ttk.Combobox(stulblframe,textvariable=self.var_stream,font=("arial",12,"bold"),width=30,state="readonly")
+        com_txt_stream_std=ttk.Combobox(stulblframe,textvariable=self.var_stream,font=("helvetica",12,"bold"),width=30,state="readonly")
         com_txt_stream_std["value"]=("Select Stream","Science","Commerce")
         com_txt_stream_std.current(0)
         com_txt_stream_std.grid(row=0,column=3,sticky=W,padx=2,pady=10)
         
         #Session
-        session=Label(stulblframe,font=("arial",12,"bold"),text="Session:",bg="white")
+        session=Label(stulblframe,font=("helvetica",12,"bold"),text="Session:",bg="white")
         session.grid(row=1,column=0,sticky=W,padx=2)
 
-        com_text_session=ttk.Combobox(stulblframe,textvariable=self.var_session,font=("arial",12,"bold"),width=17,state="readonly")
+        com_text_session=ttk.Combobox(stulblframe,textvariable=self.var_session,font=("helvetica",12,"bold"),width=17,state="readonly")
         com_text_session["value"]=("Select Session","2019-20","2020-21","2021-22","2022-23","2023-24")
         com_text_session.current(0)
         com_text_session.grid(row=1,column=1,sticky=W,padx=2)
         
         #Course
-        lbl_course=Label(stulblframe,font=("arial",12,"bold"),text="Course:",bg="white")
+        lbl_course=Label(stulblframe,font=("helvetica",12,"bold"),text="Course:",bg="white")
         lbl_course.grid(row=1,column=2,sticky=W,padx=2,pady=10)
 
-        com_course=ttk.Combobox(stulblframe,textvariable=self.var_course,font=("arial",12,"bold"),width=30,state="readonly")
+        com_course=ttk.Combobox(stulblframe,textvariable=self.var_course,font=("helvetica",12,"bold"),width=30,state="readonly")
         com_course["value"]=("Select Course","English + Physics + Chemistry + Maths + Computer Sc.",
                              "English + Physics + Chemistry + Maths + Biology",
                              "English + Physics + Chemistry + Maths + Hindi",
@@ -130,95 +130,95 @@ class Student:
 
         #labels entry
         #Adm no
-        lbl_admno=Label(stuclass,font=("arial",11,"bold"),text="Adm No:",bg="white")
+        lbl_admno=Label(stuclass,font=("helvetica",11,"bold"),text="Adm No:",bg="white")
         lbl_admno.grid(row=0,column=0,sticky=W,padx=2,pady=7)
 
-        admno_entry=ttk.Entry(stuclass,textvariable=self.var_admno,font=("arial",11,"bold"),width=22)
+        admno_entry=ttk.Entry(stuclass,textvariable=self.var_admno,font=("helvetica",11,"bold"),width=22)
         admno_entry.grid(row=0,column=1,sticky=W,padx=2,pady=7)
 
         #Name
-        lbl_name=Label(stuclass,font=("arial",11,"bold"),text="Student Name:",bg="white")
+        lbl_name=Label(stuclass,font=("helvetica",11,"bold"),text="Student Name:",bg="white")
         lbl_name.grid(row=0,column=2,sticky=W,padx=2,pady=7)
 
-        txt_name=ttk.Entry(stuclass,textvariable=self.var_std_name,width=22,font=("arial",11,"bold"))
+        txt_name=ttk.Entry(stuclass,textvariable=self.var_std_name,width=22,font=("helvetica",11,"bold"))
         txt_name.grid(row=0,column=3,padx=2,pady=7)
 
         #Section
-        lbl_sec=Label(stuclass,font=("arial",11,"bold"),text="Section:",bg="white")
+        lbl_sec=Label(stuclass,font=("helvetica",11,"bold"),text="Section:",bg="white")
         lbl_sec.grid(row=1,column=0,sticky=W,padx=2,pady=7)
 
-        com_txt_sec=ttk.Combobox(stuclass,textvariable=self.var_sec,font=("arial",12,"bold"),width=18,state="readonly")
+        com_txt_sec=ttk.Combobox(stuclass,textvariable=self.var_sec,font=("helvetica",12,"bold"),width=18,state="readonly")
         com_txt_sec["value"]=("Select Section","A","B","C")
         com_txt_sec.current(0)
         com_txt_sec.grid(row=1,column=1,sticky=W,padx=2,pady=7)
 
         #Roll no
-        lbl_rollno=Label(stuclass,font=("arial",11,"bold"),text="Roll No:",bg="white")
+        lbl_rollno=Label(stuclass,font=("helvetica",11,"bold"),text="Roll No:",bg="white")
         lbl_rollno.grid(row=1,column=2,sticky=W,padx=2,pady=7)
 
-        txt_rollno=ttk.Entry(stuclass,textvariable=self.var_rollno,width=22,font=("arial",11,"bold"))
+        txt_rollno=ttk.Entry(stuclass,textvariable=self.var_rollno,width=22,font=("helvetica",11,"bold"))
         txt_rollno.grid(row=1,column=3,padx=2,pady=7)
 
         #Gender
-        lbl_gender=Label(stuclass,font=("arial",11,"bold"),text="Gender:",bg="white")
+        lbl_gender=Label(stuclass,font=("helvetica",11,"bold"),text="Gender:",bg="white")
         lbl_gender.grid(row=2,column=0,sticky=W,padx=2,pady=7)
 
-        com_txt_gender=ttk.Combobox(stuclass,textvariable=self.var_gender,font=("arial",12,"bold"),width=18,state="readonly")
+        com_txt_gender=ttk.Combobox(stuclass,textvariable=self.var_gender,font=("helvetica",12,"bold"),width=18,state="readonly")
         com_txt_gender["value"]=("Select Gender","Male","Female","Other")
         com_txt_gender.current(0)
         com_txt_gender.grid(row=2,column=1,sticky=W,padx=2,pady=7)
 
         #DOB
-        lbl_dob=Label(stuclass,font=("arial",11,"bold"),text="DOB:",bg="white")
+        lbl_dob=Label(stuclass,font=("helvetica",11,"bold"),text="DOB:",bg="white")
         lbl_dob.grid(row=2,column=2,sticky=W,padx=2,pady=7)
 
-        txt_dob=ttk.Entry(stuclass,textvariable=self.var_dob,width=22,font=("arial",11,"bold"))
+        txt_dob=ttk.Entry(stuclass,textvariable=self.var_dob,width=22,font=("helvetica",11,"bold"))
         txt_dob.grid(row=2,column=3,padx=2,pady=7)
         
         #Blood group
-        lbl_bloodgp=Label(stuclass,font=("arial",11,"bold"),text="Blood Group:",bg="white")
+        lbl_bloodgp=Label(stuclass,font=("helvetica",11,"bold"),text="Blood Group:",bg="white")
         lbl_bloodgp.grid(row=3,column=0,sticky=W,padx=2,pady=7)
         
-        txt_bloodgp=ttk.Entry(stuclass,textvariable=self.var_bloodgp,width=22,font=("arial",11,"bold"))
+        txt_bloodgp=ttk.Entry(stuclass,textvariable=self.var_bloodgp,width=22,font=("helvetica",11,"bold"))
         txt_bloodgp.grid(row=3,column=1,padx=2,pady=7)
         
         #Category
-        lbl_category=Label(stuclass,font=("arial",11,"bold"),text="Category:",bg="white")
+        lbl_category=Label(stuclass,font=("helvetica",11,"bold"),text="Category:",bg="white")
         lbl_category.grid(row=3,column=2,sticky=W,padx=2,pady=7)
         
-        com_txt_category=ttk.Combobox(stuclass,textvariable=self.var_category,font=("arial",12,"bold"),width=18,state="readonly")
+        com_txt_category=ttk.Combobox(stuclass,textvariable=self.var_category,font=("helvetica",12,"bold"),width=18,state="readonly")
         com_txt_category["value"]=("Select Category","General","OBC","SC","ST")
         com_txt_category.current(0)
         com_txt_category.grid(row=3,column=3,padx=2,pady=7)
 
         #Phone no
-        lbl_phone=Label(stuclass,font=("arial",11,"bold"),text="Phone No:",bg="white")
+        lbl_phone=Label(stuclass,font=("helvetica",11,"bold"),text="Phone No:",bg="white")
         lbl_phone.grid(row=4,column=0,sticky=W,padx=2,pady=7)
 
-        txt_phone=ttk.Entry(stuclass,textvariable=self.var_phoneno,width=22,font=("arial",11,"bold"))
+        txt_phone=ttk.Entry(stuclass,textvariable=self.var_phoneno,width=22,font=("helvetica",11,"bold"))
         txt_phone.grid(row=4,column=1,padx=2,pady=7)
 
         #Address
-        lbl_address=Label(stuclass,font=("arial",11,"bold"),text="Address:",bg="white")
+        lbl_address=Label(stuclass,font=("helvetica",11,"bold"),text="Address:",bg="white")
         lbl_address.grid(row=4,column=2,sticky=W,padx=2,pady=7)
 
-        txt_address=ttk.Entry(stuclass,textvariable=self.var_address,width=22,font=("arial",11,"bold"))
+        txt_address=ttk.Entry(stuclass,textvariable=self.var_address,width=22,font=("helvetica",11,"bold"))
         txt_address.grid(row=4,column=3,padx=2,pady=7)
 
         #Button Frame
         btn_frame=Frame(dataleftframe,bd=2,bg="white")
         btn_frame.place(x=0,y=470,width=650,height=38)
 
-        btn_save=Button(btn_frame,text="Save",command=self.add_data,font=("arial",10,"bold"),width=15,bg="maroon",fg="white")
+        btn_save=Button(btn_frame,text="Save",command=self.add_data,font=("helvetica",10,"bold"),width=15,bg="maroon",fg="white")
         btn_save.grid(row=0,column=0,padx=10)
 
-        btn_update=Button(btn_frame,text="Update",command=self.update_data,font=("arial",10,"bold"),width=15,bg="maroon",fg="white")
+        btn_update=Button(btn_frame,text="Update",command=self.update_data,font=("helvetica",10,"bold"),width=15,bg="maroon",fg="white")
         btn_update.grid(row=0,column=1,padx=10)
 
-        btn_delete=Button(btn_frame,text="Delete",command=self.delete_data,font=("arial",10,"bold"),width=15,bg="maroon",fg="white")
+        btn_delete=Button(btn_frame,text="Delete",command=self.delete_data,font=("helvetica",10,"bold"),width=15,bg="maroon",fg="white")
         btn_delete.grid(row=0,column=2,padx=10)
 
-        btn_reset=Button(btn_frame,text="Reset",command=self.reset_data,font=("arial",10,"bold"),width=15,bg="maroon",fg="white")
+        btn_reset=Button(btn_frame,text="Reset",command=self.reset_data,font=("helvetica",10,"bold"),width=15,bg="maroon",fg="white")
         btn_reset.grid(row=0,column=3,padx=10)
 
         #right frame 
@@ -237,24 +237,24 @@ class Student:
         search_frame=LabelFrame(datarightframe,bd=4,padx=2,text="Search Student Information",font=("times new roman",12,"bold"),fg="maroon",bg="white")
         search_frame.place(x=0,y=200,width=790,height=60)
 
-        search_by=Label(search_frame,font=("arial",11,"bold"),text="Search By:",bg="maroon",fg="white")
+        search_by=Label(search_frame,font=("helvetica",11,"bold"),text="Search By:",bg="maroon",fg="white")
         search_by.grid(row=0,column=0,sticky=W,padx=5)
 
         #search  
         self.var_com_search=StringVar()
-        com_txt_search=ttk.Combobox(search_frame,textvariable=self.var_com_search,font=("arial",12,"bold"),width=18,state="readonly")
+        com_txt_search=ttk.Combobox(search_frame,textvariable=self.var_com_search,font=("helvetica",12,"bold"),width=18,state="readonly")
         com_txt_search["value"]=("Select Option","Roll_no","Phone_no","Adm_no")
         com_txt_search.current(0)
         com_txt_search.grid(row=0,column=1,sticky=W,padx=5)
 
         self.var_search=StringVar()  
-        txt_search=ttk.Entry(search_frame,textvariable=self.var_search,width=22,font=("arial",11,"bold"))
+        txt_search=ttk.Entry(search_frame,textvariable=self.var_search,width=22,font=("helvetica",11,"bold"))
         txt_search.grid(row=0,column=2,padx=5)
 
-        btn_search=Button(search_frame,command=self.search_data,text="Search",font=("arial",11,"bold"),width=14,bg="maroon",fg="white")
+        btn_search=Button(search_frame,command=self.search_data,text="Search",font=("helvetica",11,"bold"),width=14,bg="maroon",fg="white")
         btn_search.grid(row=0,column=3,padx=5)
 
-        btn_show_all=Button(search_frame,command=self.fetch_data,text="Show All",font=("arial",11,"bold"),width=15,bg="maroon",fg="white")
+        btn_show_all=Button(search_frame,command=self.fetch_data,text="Show All",font=("helvetica",11,"bold"),width=15,bg="maroon",fg="white")
         btn_show_all.grid(row=0,column=4,padx=5)
 
         #==========================STUDENT TABLE AND SCROLL BAR=================================
