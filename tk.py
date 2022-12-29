@@ -15,8 +15,8 @@ class Student:
         #Variables
         self.var_class=StringVar()
         self.var_stream=StringVar()
-        self.var_course=StringVar()
         self.var_session=StringVar()
+        self.var_course=StringVar()
         self.var_admno=StringVar()
         self.var_std_name=StringVar()
         self.var_sec=StringVar()
@@ -54,11 +54,8 @@ class Student:
         self.btn_3.place(x=980,y=0,width=550,height=160)
 
         #background image
-        img_4=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\Student-Management\\Top right and left.jpeg")
-        img_4=img_4.resize((1530,710),Image.Resampling.LANCZOS)
-        self.photoimg_4=ImageTk.PhotoImage(img_4)
-
-        background_label=Label(self.root,image=self.photoimg_4,bd=2,relief=RIDGE)
+        
+        background_label=Label(self.root,bd=2,relief=RIDGE,bg="white")
         background_label.place(x=0,y=160,width=1530,height=710)
 
         label_title=Label(background_label,text="STUDENT MANAGEMENT SYSTEM",font=("times new roman",37,"bold"),fg="maroon",bg="white")
@@ -66,7 +63,7 @@ class Student:
 
         #manage frame  
         manage_frame=Frame(background_label,bd=2,relief=RIDGE,bg="white")
-        manage_frame.place(x=15,y=55,width=1500,height=560)
+        manage_frame.place(x=0,y=55,width=1530,height=560)
 
         #left frame 
         dataleftframe=LabelFrame(manage_frame,bd=4,relief=RIDGE,padx=2,text="Student Information",font=("times new roman",12,"bold"),fg="maroon",bg="white")
@@ -98,35 +95,35 @@ class Student:
         stream_std=Label(stulblframe,font=("arial",12,"bold"),text="Stream:",bg="white")
         stream_std.grid(row=0,column=2,sticky=W,padx=2,pady=10)
         
-        com_txt_stream_std=ttk.Combobox(stulblframe,textvariable=self.var_stream,font=("arial",12,"bold"),width=17,state="readonly")
+        com_txt_stream_std=ttk.Combobox(stulblframe,textvariable=self.var_stream,font=("arial",12,"bold"),width=30,state="readonly")
         com_txt_stream_std["value"]=("Select Stream","Science","Commerce")
         com_txt_stream_std.current(0)
         com_txt_stream_std.grid(row=0,column=3,sticky=W,padx=2,pady=10)
         
-        #Course
-        lbl_course=Label(stulblframe,font=("arial",12,"bold"),text="Course:",bg="white")
-        lbl_course.grid(row=1,column=0,sticky=W,padx=2)
-
-        com_course=ttk.Combobox(stulblframe,textvariable=self.var_course,font=("arial",12,"bold"),width=17,state="readonly")
-        com_course["value"]=("Select Course","English + Physics + Chemistry + Maths + Computer Sc.",
-                             "English + Physics + Chemistry + Maths + Biology",
-                             "English + Physics + Chemistry + Maths + Hindi",
-                             "English + Physics + Chemistry + Biology + Hindi",
-                             "English + Business Studies + Accountancy + Economics + Hindi",
-                             "English + Maths + Business Studies + Accountancy + Economics"
-                             )
-        com_course.current(0)
-        com_course.grid(row=1,column=1,sticky=W,padx=2)
-        
         #Session
         session=Label(stulblframe,font=("arial",12,"bold"),text="Session:",bg="white")
-        session.grid(row=1,column=2,sticky=W,padx=2,pady=10)
+        session.grid(row=1,column=0,sticky=W,padx=2)
 
         com_text_session=ttk.Combobox(stulblframe,textvariable=self.var_session,font=("arial",12,"bold"),width=17,state="readonly")
         com_text_session["value"]=("Select Session","2019-20","2020-21","2021-22","2022-23","2023-24")
         com_text_session.current(0)
-        com_text_session.grid(row=1,column=3,sticky=W,pady=10)
+        com_text_session.grid(row=1,column=1,sticky=W,padx=2)
+        
+        #Course
+        lbl_course=Label(stulblframe,font=("arial",12,"bold"),text="Course:",bg="white")
+        lbl_course.grid(row=1,column=2,sticky=W,padx=2,pady=10)
 
+        com_course=ttk.Combobox(stulblframe,textvariable=self.var_course,font=("arial",12,"bold"),width=30,state="readonly")
+        com_course["value"]=("Select Course","English + Physics + Chemistry + Maths + Computer Sc.",
+                             "English + Physics + Chemistry + Maths + Biology",
+                             "English + Physics + Chemistry + Maths + Hindi",
+                             "English + Physics + Chemistry + Biology + Hindi",
+                             "English + Hindi + Business Studies + Accountancy + Economics",
+                             "English + Maths + Business Studies + Accountancy + Economics"
+                             )
+        com_course.current(0)
+        com_course.grid(row=1,column=3,sticky=W,padx=2,pady=10)
+        
         #Student Details
         stuclass=LabelFrame(dataleftframe,bd=4,relief=RIDGE,padx=2,text="Student Details",font=("times new roman",12,"bold"),fg="maroon",bg="white")
         stuclass.place(x=0,y=235,width=650,height=235)
@@ -209,7 +206,7 @@ class Student:
         txt_address.grid(row=4,column=3,padx=2,pady=7)
 
         #Button Frame
-        btn_frame=Frame(dataleftframe,bd=2,relief=RIDGE,bg="white")
+        btn_frame=Frame(dataleftframe,bd=2,bg="white")
         btn_frame.place(x=0,y=470,width=650,height=38)
 
         btn_save=Button(btn_frame,text="Save",command=self.add_data,font=("arial",10,"bold"),width=15,bg="maroon",fg="white")
@@ -237,7 +234,7 @@ class Student:
         rightimg.place(x=0,y=0,width=790,height=200)
 
         #search frame 
-        search_frame=LabelFrame(datarightframe,bd=4,relief=RIDGE,padx=2,text="Search Student Information",font=("times new roman",12,"bold"),fg="maroon",bg="white")
+        search_frame=LabelFrame(datarightframe,bd=4,padx=2,text="Search Student Information",font=("times new roman",12,"bold"),fg="maroon",bg="white")
         search_frame.place(x=0,y=200,width=790,height=60)
 
         search_by=Label(search_frame,font=("arial",11,"bold"),text="Search By:",bg="maroon",fg="white")
@@ -266,7 +263,7 @@ class Student:
 
         scroll_x=ttk.Scrollbar(table_frame,orient=HORIZONTAL) 
         scroll_y=ttk.Scrollbar(table_frame,orient=VERTICAL)     
-        self.student_table=ttk.Treeview(table_frame,column=("class","stream","course","session","adm_no","name","section","roll_no","gender","dob","blood_group","category","phone_no","address"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        self.student_table=ttk.Treeview(table_frame,column=("class","stream","session","course","adm_no","name","section","roll_no","gender","dob","blood_group","category","phone_no","address"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
         
         scroll_x.pack(side=BOTTOM,fill=X)
         scroll_y.pack(side=RIGHT,fill=Y)
@@ -276,8 +273,8 @@ class Student:
 
         self.student_table.heading("class",text="Class")
         self.student_table.heading("stream",text="Stream")
-        self.student_table.heading("course",text="Course")
         self.student_table.heading("session",text="Session")
+        self.student_table.heading("course",text="Course")
         self.student_table.heading("adm_no",text="Adm No")
         self.student_table.heading("name",text="Student Name")
         self.student_table.heading("section",text="Section")
@@ -293,10 +290,10 @@ class Student:
 
         self.student_table.column("class",width=100)
         self.student_table.column("stream",width=100)
-        self.student_table.column("course",width=100)
         self.student_table.column("session",width=100)
+        self.student_table.column("course",width=350)
         self.student_table.column("adm_no",width=100)
-        self.student_table.column("name",width=100)
+        self.student_table.column("name",width=200)
         self.student_table.column("section",width=100)
         self.student_table.column("roll_no",width=100)
         self.student_table.column("gender",width=100)
@@ -304,7 +301,7 @@ class Student:
         self.student_table.column("blood_group",width=100)
         self.student_table.column("category",width=100)
         self.student_table.column("phone_no",width=100)
-        self.student_table.column("address",width=100)
+        self.student_table.column("address",width=350)
 
         self.student_table.pack(fill=BOTH,expand=1)
         self.fetch_data()
@@ -321,8 +318,8 @@ class Student:
                 mycursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
                                                                                                            self.var_class.get(),               
                                                                                                            self.var_stream.get(),
-                                                                                                           self.var_course.get(),
                                                                                                            self.var_session.get(),
+                                                                                                           self.var_course.get(),
                                                                                                            self.var_admno.get(),
                                                                                                            self.var_std_name.get(),
                                                                                                            self.var_sec.get(),
@@ -363,8 +360,8 @@ class Student:
 
         self.var_class.set(data[0])
         self.var_stream.set(data[1])
-        self.var_course.set(data[2])
-        self.var_session.set(data[3])
+        self.var_session.set(data[2])
+        self.var_course.set(data[3])
         self.var_admno.set(data[4])
         self.var_std_name.set(data[5])
         self.var_sec.set(data[6])
@@ -385,11 +382,11 @@ class Student:
                 if update>0:
                     mycon=mys.connect(host='localhost',username='root',password='Moonknight',database='school')
                     mycursor=mycon.cursor()     
-                    mycursor.execute("update student set Class=%s,Stream=%s,Course=%s,Session=%s,Adm_no=%s,Name=%s,Section=%s,Roll_no=%s,Gender=%s,DOB=%s,Blood_Group=%s,Category=%s,Phone_no=%s,Address=%s where Student_id=%s",(
+                    mycursor.execute("update student set Class=%s,Stream=%s,Session=%s,Course=%s,Adm_no=%s,Name=%s,Section=%s,Roll_no=%s,Gender=%s,DOB=%s,Blood_Group=%s,Category=%s,Phone_no=%s,Address=%s where Adm_no=%s",(
                                                                                                                                                             self.var_class.get(),               
                                                                                                                                                             self.var_stream.get(),
-                                                                                                                                                            self.var_course.get(),
                                                                                                                                                             self.var_session.get(),
+                                                                                                                                                            self.var_course.get(),
                                                                                                                                                             self.var_admno.get(),
                                                                                                                                                             self.var_std_name.get(),
                                                                                                                                                             self.var_sec.get(),
@@ -423,7 +420,7 @@ class Student:
                 if Del>0:
                     mycon=mys.connect(host='localhost',username='root',password='Moonknight',database='school')
                     mycursor=mycon.cursor()
-                    sql="delete from student where Student_ID=%s"
+                    sql="delete from student where Adm_no=%s"
                     value=(self.var_admno.get(),)
                     mycursor.execute(sql,value)
                 else:
@@ -440,16 +437,16 @@ class Student:
     def reset_data(self):
         self.var_class.set("Select Class")
         self.var_stream.set("Select Stream")
-        self.var_course.set("Select Course")
         self.var_session.set("Select Session")
+        self.var_course.set("Select Course")
         self.var_admno.set("")
         self.var_std_name.set("")
-        self.var_sec.set("Select Division")
+        self.var_sec.set("Select Section")
         self.var_rollno.set("")
-        self.var_gender.set("")
+        self.var_gender.set("Select Gender")
         self.var_dob.set("")
         self.var_bloodgp.set("")
-        self.var_category.set("")
+        self.var_category.set("Select Category")
         self.var_phoneno.set("")
         self.var_address.set("")
         
