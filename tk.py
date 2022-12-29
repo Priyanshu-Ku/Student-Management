@@ -325,7 +325,7 @@ class Student:
             mycon.commit()
         mycon.close()
         
-    ### Get Cursor            
+    #Get Cursor            
     def get_cursor(self,event=""):
         cursor_row=self.student_table.focus()
         content=self.student_table.item(cursor_row)
@@ -354,7 +354,7 @@ class Student:
                 if update>0:
                     mycon=mys.connect(host='localhost',username='root',password='Moonknight',database='school')
                     mycursor=mycon.cursor()     
-                    mycursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Student_ID=%s,Name=%s,Division=%s,Rollno=%s,Gender=%s,DOB=%s,Phoneno=%s,Address=%s where Student_ID=%s",(
+                    mycursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Student_id=%s,Name=%s,Division=%s,Roll_no=%s,Gender=%s,DOB=%s,Phone_no=%s,Address=%s where Student_id=%s",(
                                                                                                                                                             self.var_dep.get(),               
                                                                                                                                                             self.var_course.get(),
                                                                                                                                                             self.var_year.get(),
@@ -439,39 +439,7 @@ class Student:
             except Exception as es:
                 messagebox.showerror("Error",f"Due To:{str(es)}",parent=self.root)
         
-       
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 if __name__=="__main__":
     root=Tk()
     obj=Student(root)
