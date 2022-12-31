@@ -30,7 +30,7 @@ class Student:
 
 
         #1st
-        img_1=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\Student-Management\\Top right and left.jpeg")
+        img_1=Image.open(r'Top right and left.jpeg')
         img_1=img_1.resize((490,160),Image.Resampling.LANCZOS)
         self.photoimg_1=ImageTk.PhotoImage(img_1)
 
@@ -38,7 +38,7 @@ class Student:
         self.btn_1.place(x=0,y=0,width=490,height=160)
 
          #2nd
-        img_2=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\Student-Management\\Top middle.jpeg")
+        img_2=Image.open(r'Top middle.jpeg')
         img_2=img_2.resize((490,160),Image.Resampling.LANCZOS)
         self.photoimg_2=ImageTk.PhotoImage(img_2)
 
@@ -46,7 +46,7 @@ class Student:
         self.btn_2.place(x=490,y=0,width=490,height=160)
 
          #3rd
-        img_3=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\Student-Management\\Top right and left.jpeg")
+        img_3=Image.open(r'Top right and left.jpeg')
         img_3=img_3.resize((550,160),Image.Resampling.LANCZOS)
         self.photoimg_3=ImageTk.PhotoImage(img_3)
 
@@ -70,7 +70,7 @@ class Student:
         dataleftframe.place(x=10,y=10,width=660,height=540)
 
         #leftimg
-        img_5=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\Student-Management\\Down Left.jpeg")
+        img_5=Image.open(r'Down Left.jpeg')
         img_5=img_5.resize((650,120),Image.Resampling.LANCZOS)
         self.photoimg_5=ImageTk.PhotoImage(img_5)
 
@@ -226,7 +226,7 @@ class Student:
         datarightframe.place(x=680,y=10,width=800,height=540)
 
         #rightimg
-        img_6=Image.open("C:\\Users\\Priyanshu\\Desktop\\BOARDS\\Investigatory projects\\Student-Management\\Bottom right.jpeg")
+        img_6=Image.open(r'Bottom right.jpeg')
         img_6=img_6.resize((790,200),Image.Resampling.LANCZOS)
         self.photoimg_6=ImageTk.PhotoImage(img_6)
 
