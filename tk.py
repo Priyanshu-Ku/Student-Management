@@ -334,7 +334,6 @@ class Student:
                                                                                                    ))
                 mycon.commit()
                 self.fetch_data()
-                mycon.close()
                 messagebox.showinfo("Success","Student has been added!",parent=self.root) 
             except Exception as es:
                 messagebox.showerror("Error",f"Due To:{str(es)})",parent=self.root)                                                                                    
@@ -350,7 +349,6 @@ class Student:
             for i in data:
                 self.student_table.insert("",END,values=i)
             mycon.commit()
-        mycon.close()
         
     #Get Cursor            
     def get_cursor(self,event=""):
@@ -405,7 +403,6 @@ class Student:
                         return
                 mycon.commit()
                 self.fetch_data() 
-                mycon.close()
                 messagebox.showinfo("Success","Student successfully updated",parent=self.root)
             except Exception as es:
                 messagebox.showerror("Error",f"Due To:{str(es)})",parent=self.root)
@@ -428,7 +425,6 @@ class Student:
                         return
                 mycon.commit() 
                 self.fetch_data()
-                mycon.close()
                 messagebox.showinfo("Delete","Your Student has been Deleted")
             except Exception as es:
                 messagebox.showerror("Error",f"Due To:{str(es)})",parent=self.root)
@@ -453,21 +449,22 @@ class Student:
     #search data
     def search_data(self):
         if self.var_com_search.get()=="" or self.var_search.get()=="":
-            messagebox.showerror("Error","Please select option")
+            messagebox.showerror("Error","Please fill the details")
         else:
             try:
                 mycon=mys.connect(host='localhost',username='root',password='Moonknight',database='school')
                 mycursor=mycon.cursor()
                 mycursor.execute("select * from student where " +str(self.var_com_search.get())+" LIKE '%"+str(self.var_search.get())+"%'")
-                rows=mycursor.fetchall()
-
-                if len(rows)!=0:
+                data=mycursor.fetchall()
+                
+                if len(data)!=0:
                     self.student_table.delete(*self.student_table.get_children())
-                    for i in rows:
+                    for i in data:
                         self.student_table.insert("",END,values=i)
-
-                    mycon.commit()
-                mycon.close()    
+                else:
+                    if data!=self.student_table:
+                        messagebox.showerror("Error","Student not found")
+                mycon.commit()   
             except Exception as es:
                 messagebox.showerror("Error",f"Due To:{str(es)}",parent=self.root)
         
