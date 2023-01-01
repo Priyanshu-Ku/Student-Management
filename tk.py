@@ -376,7 +376,7 @@ class Student:
             messagebox.showerror("Error","All Fields Are required")
         else:
             try:
-                update=messagebox.askyesno("Update","Are you sure update this student data",parent=self.root)
+                update=messagebox.askyesno("Update","Are you sure you want to update this student data",parent=self.root)
                 if update>0:
                     mycon=mys.connect(host='localhost',username='root',password='Moonknight',database='school')
                     mycursor=mycon.cursor()     
@@ -413,7 +413,7 @@ class Student:
             messagebox.showerror("Error","All Fields Are required",parent=self.root)
         else:
             try:
-                Del=messagebox.askyesno("Delete","Are sure delete this student",parent=self.root)
+                Del=messagebox.askyesno("Delete","Are you sure you want to delete this student",parent=self.root)
                 if Del>0:
                     mycon=mys.connect(host='localhost',username='root',password='Moonknight',database='school')
                     mycursor=mycon.cursor()
