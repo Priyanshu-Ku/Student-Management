@@ -294,7 +294,7 @@ class Student:
         btn_show_all.grid(row=0,column=4,padx=5)
         
         #Student table
-        mycon=mys.connect(host='localhost',user='root',passwd='12345',database='school')
+        mycon=mys.connect(host='localhost',user='root',passwd='Moonknight',database='school')
         mycursor=mycon.cursor()
         mycursor.execute('''create table if not exists student(
             Class varchar(10) NOT NULL,
@@ -314,7 +314,7 @@ class Student:
             ChemistryorEconomics_marks int DEFAULT NULL,
             CSorBiologyorBusiness_studies_marks int NULL,
             English_marks int DEFAULT NULL,
-            Total_m INT NOT NULL,
+            Total_marks INT NOT NULL,
             Total_percentage int NOT NULL)''')
         mycon.commit()
         mycon.close()
@@ -386,7 +386,7 @@ class Student:
         else:
             try:
                 marks = [self.var_mathsmarks.get(), self.var_phymarks.get(), self.var_chemmarks.get(), self.var_csmarks.get(), self.var_engmarks.get()]
-                mycon=mys.connect(host='localhost',user='root',passwd='12345',database='school')
+                mycon=mys.connect(host='localhost',user='root',passwd='Moonknight',database='school')
                 mycursor=mycon.cursor()     
                 mycursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                                 (self.var_class.get(),               
@@ -417,7 +417,7 @@ class Student:
  
     #Fetch function
     def fetch_data(self):
-        mycon=mys.connect(host='localhost',user='root',password='12345',database='school')
+        mycon=mys.connect(host='localhost',user='root',password='Moonknight',database='school')
         mycursor=mycon.cursor()
         mycursor.execute("select * from student")
         data=mycursor.fetchall()
@@ -462,14 +462,13 @@ class Student:
                 marks = [self.var_mathsmarks.get(), self.var_phymarks.get(), self.var_chemmarks.get(), self.var_csmarks.get(), self.var_engmarks.get()]
                 update=messagebox.askyesno("Update","Are you sure you want to update this student data",parent=self.root)
                 if update>0:
-                    mycon=mys.connect(host='localhost',user='root',password='12345',database='school')
+                    mycon=mys.connect(host='localhost',user='root',password='Moonknight',database='school')
                     mycursor=mycon.cursor()     
-                    mycursor.execute("update student set Class=%s,Stream=%s,Session=%s,Course=%s,Adm_no=%s,Name=%s,Section=%s,Roll_no=%s,Gender=%s,DOB=%s,Category=%s,Phone_no=%s,MathsorHindi_marks=%s,PhysicsorAccountancy_marks=%s,ChemistryorEconomics_marks=%s,CSorBiologyorBusiness_studies_marks=%s,English_marks=%s,Total_marks=%s,Total_percentage=%s where Adm_no=%s",
+                    mycursor.execute("update student set Class=%s,Stream=%s,Session=%s,Course=%s,Name=%s,Section=%s,Roll_no=%s,Gender=%s,DOB=%s,Category=%s,Phone_no=%s,MathsorHindi_marks=%s,PhysicsorAccountancy_marks=%s,ChemistryorEconomics_marks=%s,CSorBiologyorBusiness_studies_marks=%s,English_marks=%s,Total_marks=%s,Total_percentage=%s where Adm_no=%s",
                                      (self.var_class.get(),               
                                      self.var_stream.get(),
                                      self.var_session.get(),
                                      self.var_course.get(),
-                                     self.var_admno.get(),
                                      self.var_std_name.get(),
                                      self.var_sec.get(),
                                      self.var_rollno.get(),                                                                                                                                 
@@ -477,14 +476,14 @@ class Student:
                                      self.var_dob.get(),
                                      self.var_category.get(),
                                      self.var_phoneno.get(),
-                                     self.var_admno.get(),
                                      self.var_mathsmarks.get(),
                                      self.var_phymarks.get(),
                                      self.var_chemmarks.get(),
                                      self.var_csmarks.get(),
                                      self.var_engmarks.get(),
                                     sum(marks),
-                                    sum(marks)/5))
+                                    sum(marks)/5,
+                                    self.var_admno.get()))
                                     #  self.var_admno.get()
                             
                 else:
@@ -505,7 +504,7 @@ class Student:
             try:
                 Del=messagebox.askyesno("Delete","Are you sure you want to delete this student",parent=self.root)
                 if Del>0:
-                    mycon=mys.connect(host='localhost',user='root',password='12345',database='school')
+                    mycon=mys.connect(host='localhost',user='root',password='Moonknight',database='school')
                     mycursor=mycon.cursor()
                     sql="delete from student where Adm_no=%s"
                     value=(self.var_admno.get(),)
@@ -546,7 +545,7 @@ class Student:
             messagebox.showerror("Error","Please fill the details")
         else:
             try:
-                mycon=mys.connect(host='localhost',user='root',password='12345',database='school')
+                mycon=mys.connect(host='localhost',user='root',password='Moonknight',database='school')
                 mycursor=mycon.cursor()
                 mycursor.execute("select * from student where " +str(self.var_com_search.get())+" LIKE '%"+str(self.var_search.get())+"%'")
                 data=mycursor.fetchall()
