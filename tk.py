@@ -294,26 +294,28 @@ class Student:
         btn_show_all.grid(row=0,column=4,padx=5)
         
         #Student table
-        mycon=mys.connect(host='localhost',user='root',passwd='Moonknight',database='school')
+        mycon=mys.connect(host='localhost',user='root',passwd='12345',database='school')
         mycursor=mycon.cursor()
-        mycursor.execute('''create table if not exists student(Class varchar(10) NOT NULL,
-                                                               Stream varchar(45) NOT NULL,
-                                                               Session varchar(10) NOT NULL,
-                                                               Course varchar(200) NOT NULL,
-                                                               Adm_no int PRIMARY KEY NOT NULL,
-                                                               Name varchar(45) NOT NULL,
-                                                               Section varchar(10) NOT NULL,
-                                                               Roll_no int NOT NULL,
-                                                               Gender varchar(10) NOT NULL,
-                                                               DOB date NOT NULL,
-                                                               Category varchar(10) NOT NULL,
-                                                               Phone_no bigint(11) NOT NULL,
-                                                               MathsorHindi_marks int DEFAULT NULL,
-                                                               PhysicsorAccountancy_marks int DEFAULT NULL,
-                                                               ChemistryorEconomics_marks int DEFAULT NULL,
-                                                               CSorBiologyorBusiness_studies_marks int DEFAULT NULL,
-                                                               English_marks int DEFAULT NULL,Total_marks int NOT NULL,
-                                                               Total_percentage int NOT NULL)''')
+        mycursor.execute('''create table if not exists student(
+            Class varchar(10) NOT NULL,
+            Stream varchar(45) NOT NULL,
+            Session varchar(10) NOT NULL,
+            Course varchar(200) NOT NULL,
+            Adm_no int PRIMARY KEY NOT NULL,
+            Name varchar(45) NOT NULL,
+            Section varchar(10) NOT NULL,
+            Roll_no int NOT NULL,
+            Gender varchar(10) NOT NULL,
+            DOB date NOT NULL,
+            Category varchar(10) NOT NULL,
+            Phone_no bigint(11) NOT NULL,
+            MathsorHindi_marks int DEFAULT NULL,
+            PhysicsorAccountancy_marks int DEFAULT NULL,
+            ChemistryorEconomics_marks int DEFAULT NULL,
+            CSorBiologyorBusiness_studies_marks int NULL,
+            English_marks int DEFAULT NULL,
+            Total_m INT NOT NULL,
+            Total_percentage int NOT NULL)''')
         mycon.commit()
         mycon.close()
 
@@ -383,9 +385,8 @@ class Student:
             messagebox.showerror("Error","All Fields Are required")
         else:
             try:
-                p6=int(p1)+int(p2)+int(p3)+int(p4)+int(p5)
-                p7=int(p6/5)
-                mycon=mys.connect(host='localhost',user='root',passwd='Moonknight',database='school')
+                marks = [self.var_mathsmarks.get(), self.var_phymarks.get(), self.var_chemmarks.get(), self.var_csmarks.get(), self.var_engmarks.get()]
+                mycon=mys.connect(host='localhost',user='root',passwd='12345',database='school')
                 mycursor=mycon.cursor()     
                 mycursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                                 (self.var_class.get(),               
@@ -405,8 +406,8 @@ class Student:
                                  self.var_chemmarks.get(),
                                  self.var_csmarks.get(),
                                  self.var_engmarks.get(),
-                                 p6,
-                                 p7))
+                                 sum(marks),
+                                 sum(marks)/5))
                 mycon.commit()
                 self.fetch_data()
                 mycon.close()
@@ -416,7 +417,7 @@ class Student:
  
     #Fetch function
     def fetch_data(self):
-        mycon=mys.connect(host='localhost',user='root',password='Moonknight',database='school')
+        mycon=mys.connect(host='localhost',user='root',password='12345',database='school')
         mycursor=mycon.cursor()
         mycursor.execute("select * from student")
         data=mycursor.fetchall()
@@ -458,11 +459,10 @@ class Student:
             messagebox.showerror("Error","All Fields Are required")
         else:
             try:
-                p6=int(p1)+int(p2)+int(p3)+int(p4)+int(p5)
-                p7=int(p6/5)
+                marks = [self.var_mathsmarks.get(), self.var_phymarks.get(), self.var_chemmarks.get(), self.var_csmarks.get(), self.var_engmarks.get()]
                 update=messagebox.askyesno("Update","Are you sure you want to update this student data",parent=self.root)
                 if update>0:
-                    mycon=mys.connect(host='localhost',user='root',password='Moonknight',database='school')
+                    mycon=mys.connect(host='localhost',user='root',password='12345',database='school')
                     mycursor=mycon.cursor()     
                     mycursor.execute("update student set Class=%s,Stream=%s,Session=%s,Course=%s,Adm_no=%s,Name=%s,Section=%s,Roll_no=%s,Gender=%s,DOB=%s,Category=%s,Phone_no=%s,MathsorHindi_marks=%s,PhysicsorAccountancy_marks=%s,ChemistryorEconomics_marks=%s,CSorBiologyorBusiness_studies_marks=%s,English_marks=%s,Total_marks=%s,Total_percentage=%s where Adm_no=%s",
                                      (self.var_class.get(),               
@@ -483,8 +483,10 @@ class Student:
                                      self.var_chemmarks.get(),
                                      self.var_csmarks.get(),
                                      self.var_engmarks.get(),
-                                     p6,
-                                     p7))
+                                    sum(marks),
+                                    sum(marks)/5))
+                                    #  self.var_admno.get()
+                            
                 else:
                     if not update:
                         return
@@ -503,7 +505,7 @@ class Student:
             try:
                 Del=messagebox.askyesno("Delete","Are you sure you want to delete this student",parent=self.root)
                 if Del>0:
-                    mycon=mys.connect(host='localhost',user='root',password='Moonknight',database='school')
+                    mycon=mys.connect(host='localhost',user='root',password='12345',database='school')
                     mycursor=mycon.cursor()
                     sql="delete from student where Adm_no=%s"
                     value=(self.var_admno.get(),)
@@ -544,7 +546,7 @@ class Student:
             messagebox.showerror("Error","Please fill the details")
         else:
             try:
-                mycon=mys.connect(host='localhost',user='root',password='Moonknight',database='school')
+                mycon=mys.connect(host='localhost',user='root',password='12345',database='school')
                 mycursor=mycon.cursor()
                 mycursor.execute("select * from student where " +str(self.var_com_search.get())+" LIKE '%"+str(self.var_search.get())+"%'")
                 data=mycursor.fetchall()
@@ -566,5 +568,3 @@ if __name__=="__main__":
     root=Tk()
     obj=Student(root)
     root.mainloop()  
-
-
