@@ -533,11 +533,11 @@ class Student:
         self.var_dob.set("")
         self.var_category.set("Select Category")
         self.var_phoneno.set("")
-        self.var_mathsmarks.get("")
-        self.var_phymarks.get("")
-        self.var_chemmarks.get("")
-        self.var_csmarks.get("")
-        self.var_engmarks.get("")
+        self.var_mathsmarks.set("")
+        self.var_phymarks.set("")
+        self.var_chemmarks.set("")
+        self.var_csmarks.set("")
+        self.var_engmarks.set("")
        
     #search data
     def search_data(self):
