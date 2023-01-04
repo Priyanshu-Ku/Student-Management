@@ -84,7 +84,7 @@ class Student:
         lbl_class.grid(row=0,column=0,padx=2,sticky=W)    
 
         combo_class=ttk.Combobox(stulblframe,textvariable=self.var_class,font=("helvetica",12,"bold"),width=17,state="readonly")
-        combo_class["value"]=("Select Class","XI","XII")
+        combo_class["value"]=("Select Class","11","12")
         combo_class.current(0)
         combo_class.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
